@@ -1,0 +1,17 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5678
+    username: guest
+    password: guest
+poc:
+  rabbitmq:
+    queue: poc.queue-c1
+    exchange: poc.exchange
+    routingkey: poc.routingkey
+    headers:
+      Brand: GAP
+      Market: US
+      Channel: RTL
+server:
+  port: 8081
