@@ -5,11 +5,9 @@ import java.util.Map;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Exchange;
 import org.springframework.amqp.core.HeadersExchange;
 import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.annotation.RabbitListenerConfigurer;
 import org.springframework.amqp.rabbit.listener.RabbitListenerEndpointRegistrar;
 import org.springframework.beans.factory.annotation.Value;
@@ -44,7 +42,6 @@ public class RabbitMQConfig implements RabbitListenerConfigurer {
 	@Bean
 	public Binding binding(Queue queue, Exchange exchange) {
 		Map<String, Object> headers = new HashMap<>();
-		headers.put("x-match", "all");
 		headers.put("Brand", "GAP");
 		headers.put("Market", "US");
 		headers.put("Channel", "RTL");

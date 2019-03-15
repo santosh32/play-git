@@ -42,7 +42,6 @@ public class RabbitMQConfig implements RabbitListenerConfigurer {
 	@Bean
 	public Binding binding(Queue queue, Exchange exchange) {
 		Map<String, Object> headers = new HashMap<>();
-		headers.put("x-match", "all");
 		headers.put("Brand", "GAP");
 		headers.put("Market", "US");
 		headers.put("Channel", "ONL");
