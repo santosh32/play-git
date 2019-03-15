@@ -10,6 +10,6 @@ public class Subcriber {
 
 	@RabbitListener(queues = "${poc.rabbitmq.queue}")
 	public void recievedMessage(Order order) {
-		System.out.println("Recieved Message: " + order);
+		System.out.println("Recieved Message consumer-1: " + order);
 	}
 }
