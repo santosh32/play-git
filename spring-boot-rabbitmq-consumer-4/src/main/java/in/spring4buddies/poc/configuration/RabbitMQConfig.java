@@ -41,12 +41,12 @@ public class RabbitMQConfig implements RabbitListenerConfigurer {
 	}
 
 	@Bean
-	public Binding binding(Queue queue, HeadersExchange exchange) {
+	public Binding binding(Queue queue, Exchange exchange) {
 		Map<String, Object> headers = new HashMap<>();
 		headers.put("Brand", "OLDNAVY");
 		headers.put("Market", "US");
 		headers.put("Channel", "RTL");
-		return BindingBuilder.bind(queue).to(exchange).whereAll(headers).match();
+		return BindingBuilder.bind(queue).to(exchange).with(routingKey).and(headers);
 	}
 
 	@Bean
