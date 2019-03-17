@@ -1,6 +1,7 @@
 package in.spring4buddies.poc.configuration;
 
 import org.springframework.amqp.core.HeadersExchange;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
@@ -18,8 +19,8 @@ public class RabbitMQConfig {
 	private String routingKey;
 
 	@Bean
-	public HeadersExchange exchange() {
-		return new HeadersExchange(exchange);
+	public TopicExchange exchange() {
+		return new TopicExchange(exchange);
 	}
 
 	@Bean

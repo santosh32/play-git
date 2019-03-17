@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import in.spring4buddies.poc.data.Order;
+import in.spring4buddies.poc.data.BMC;
 
 @Component
 public class MessagePublisher {
@@ -19,8 +19,8 @@ public class MessagePublisher {
 	@Value("${poc.rabbitmq.routingkey}")
 	private String routingKey;
 
-	public void publish(Order order) {
-		rabbitTemplate.convertAndSend(exchange, routingKey, order);
-		System.out.println("Send msg = " + order);
+	public void publish(BMC bmc) {
+		rabbitTemplate.convertAndSend(exchange, routingKey, bmc);
+		System.out.println("Send msg = " + bmc);
 	}
 }
